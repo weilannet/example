@@ -1,0 +1,85 @@
+<ion-view class='HistoryRepairStyle'>
+    <ion-nav-title>历史报修</ion-nav-title>
+    <!-- <div class="tbbox">
+        <div class="tpBtn lft" ng-class="{'acBtn':!showPage}" ng-click="showPage=false;"><span>未完成报修<em ng-if="repairNum.num > 0">{{repairNum.num}}</em></span></div>
+        <div class="tpBtn rgt" ng-class="{'acBtn':showPage}" ng-click="showPage=true;"><span>已完成保修</span></div>
+    </div> -->
+    <ion-tabs class="tabs-color-active-assertive tabs-top">
+        <ion-tab title="未完成报修">
+            <ion-nav-view name="tab-index" class="repairListPageStyle">
+                <ion-content has-bouncing="false" scrollbar-y="false" class="bkgcol">
+                    <ion-refresher immediate-check="false" pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+                    <div class="list">
+                        <a ng-repeat="item in noFinRepair" href="/#/propertyRepair/weChatRepairInfo/{{item.id}}" class="item item-thumbnail-left">
+                            <img ng-src="{{item.imageUrl}}">
+                            <div class="content">
+                                <h2>{{item.content | characters:53}}</h2>
+                            </div>
+                            <h4>状态：{{item.status}}</h4>
+                        </a>
+                    </div>
+                    <ion-infinite-scroll immediate-check="false" ng-if="pageInfo.hasNextPage" on-infinite="loadMore()" distance="1%">
+                    </ion-infinite-scroll>
+                </ion-content>
+            </ion-nav-view>
+        </ion-tab>
+        <ion-tab title="已完成报修">
+            <ion-nav-view name="tab-chats" class="otherMessageListPageStyle">
+                <ion-content has-bouncing="false" scrollbar-y="false" class="bkgcol">
+                    <ion-refresher immediate-check="false" pulling-text="下拉刷新..." on-refresh="doFinishRefresh()">
+                    </ion-refresher>
+                    <div class="list">
+                        <a ng-repeat="item1 in finRepair" href="/#/propertyRepair/weChatRepairInfo/{{item1.id}}" class="item item-thumbnail-left">
+                            <img ng-src="{{item1.imageUrl}}">
+                            <div class="content">
+                                <h2>{{item1.content}}</h2>
+                            </div>
+                            <h4>状态：{{item1.status}}</h4>
+                        </a>
+                    </div>
+                    <ion-infinite-scroll immediate-check="false" ng-if="pageFinishInfo.hasNextFinishPage" on-infinite="loadFinishMore()" distance="1%">
+                    </ion-infinite-scroll>
+                </ion-content>
+            </ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+    <!-- <div class="tabs-icon-top tabs-color-active-positive tabs-icon-only tabs-top">
+        <div title="未完成报修" ng-show="!showPage">
+            <ion-nav-view name="tab-index" class="repairListPageStyle">
+                <ion-content has-bouncing="false" scrollbar-y="false" class="bkgcol">
+                    <ion-refresher immediate-check="false" pulling-text="下拉刷新..." on-refresh="doRefresh()"></ion-refresher>
+                    <div class="list">
+                        <a ng-repeat="item in noFinRepair" href="/#/propertyRepair/weChatRepairInfo/{{item.id}}" class="item item-thumbnail-left">
+                            <img ng-src="{{item.imageUrl}}">
+                            <div class="content">
+                                <h2>{{item.content | characters:53}}</h2>
+                            </div>
+                            <h4>状态：{{item.status}}</h4>
+                        </a>
+                    </div>
+                    <ion-infinite-scroll immediate-check="false" ng-if="pageInfo.hasNextPage" on-infinite="loadMore()" distance="1%">
+                    </ion-infinite-scroll>
+                </ion-content>
+            </ion-nav-view>
+        </div>
+        <div ng-show="showPage" title="已完成报修" icon-off="ion-house" icon-on="ion-house-active">
+            <ion-nav-view name="tab-chats" class="otherMessageListPageStyle">
+                <ion-content has-bouncing="false" scrollbar-y="false" class="bkgcol">
+                    <ion-refresher immediate-check="false" pulling-text="下拉刷新..." on-refresh="doFinishRefresh()">
+                    </ion-refresher>
+                    <div class="list">
+                        <a ng-repeat="item1 in finRepair" href="/#/propertyRepair/weChatRepairInfo/{{item1.id}}" class="item item-thumbnail-left">
+                            <img ng-src="{{item1.imageUrl}}">
+                            <div class="content">
+                                <h2>{{item1.content}}</h2>
+                            </div>
+                            <h4>状态：{{item1.status}}</h4>
+                        </a>
+                    </div>
+                    <ion-infinite-scroll immediate-check="false" ng-if="pageFinishInfo.hasNextFinishPage" on-infinite="loadFinishMore()" distance="1%">
+                    </ion-infinite-scroll>
+                </ion-content>
+            </ion-nav-view>
+        </div>
+    </div> -->
+</ion-view>

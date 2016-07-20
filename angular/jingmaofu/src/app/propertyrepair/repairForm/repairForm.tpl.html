@@ -1,0 +1,77 @@
+<ion-view class='RepairFormStyle'>
+    <!-- <ion-nav-title mr-title="房屋报修">房屋报修</ion-nav-title> -->
+    <ion-nav-title>物业报修</ion-nav-title>
+    <!--  <ion-nav-buttons side="right">
+        <a href="/propertyrepair/historyRepair" nav-direction="forward">
+            <button class="button noteBtn"></button>
+        </a>
+    </ion-nav-buttons> -->
+    <form name="myForm">
+        <ion-content has-bouncing="false" scrollbar-y="false">
+            <div class="repairForm">
+                <div class="repairTitle">问题详情</div>
+                <div class="list">
+                    <label class="item item-input">
+                        <!-- <textarea maxlength="200" ng-model="repairData.descriptions" placeholder="请描述您的报修事项，最多输入200字" required></textarea> -->
+                        <textarea maxlength="200" ng-model="data.descriptions" maxlength="200" placeholder="请描述您的报修事项，最多输入200字" required></textarea>
+                    </label>
+                </div>
+                <div class="voicePart">
+                    <p class="description">上传照片(最多三张)将更好的描述问题状况</p>
+                    <div class="pictures">
+                        <ion-scroll direction="x" scrollbar-x="false" scroll="true" class="scrollBox">
+                            <ul ng-model="data.imageList">
+                                <li class="itemPicture" ng-click="deletePicture($index)" ng-repeat="pictureItem in data.imageList track by $index">
+                                    <img src="{{pictureItem}}" />
+                                </li>
+                                <li class="caremaImg" ng-click="addAttachment()"></li>
+                                <li class="voiceImg" ng-click="voiceHandle()"></li>
+                            </ul>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <div class="personInformation">
+                    <ion-list class="list">
+                        <div class="item item-button-right">
+                            我的家在
+                            <label class="item item-select">
+                                <select ng-model="default.defaultID" ng-change="transHouseId(default.defaultID)" ng-options="addrlist.houseInfoId as addrlist.address for addrlist in data.houseData">
+                                </select>
+                            </label>
+                        </div>
+                        <div class="item item-button-right">
+                            我是
+                            <input ng-model="data.userName" class="button inputName" placeholder="请输入您的姓名" required />
+                        </div>
+                        <div class="item item-button-right">
+                            我的电话是
+                            <!-- <label class="item item-select">
+                                <select>
+                                    <option ng-model="data.clientAddress" ng-repeat="item in data.addressList" data-address="{{addressId}}">{{item.address}}</option>
+                                </select>
+                                <select ng-model="repairData.userPhone" ng-options="dizhi.userPhone for dizhi in data.phoneList" required>
+                                    <option selected value="请选择">请选择</option>
+                                </select>
+                            </label> -->
+                            <input ng-model="data.userPhone" minlength="11" maxlength="12" class="button inputName" placeholder="请输入您的联系方式" required />
+                        </div>
+                    </ion-list>
+                </div>
+                <!-- <p class="prompt">
+                    <span class="warnPicture"></span> 提示如果您提交的内容已超过报修范围，则可能产生费用
+                    <span>
+                        <a class="price" href="/#/priceDetail/1">查看价格说明</a>
+                    </span>
+                </p> -->
+            </div>
+            <div class="btnGrp">
+                <button ng-click="postRepairForm(myForm)" ng-disabled="!myForm.$valid || myForm.$submitted" class="button button-positive sendBtn">确认提交</button>
+            </div>
+            <div class="btnGrp">
+                <a href="/#/propertyrepair/historyRepair">
+                    <div class="button button-positive sendBtn">历史报修</div>
+                </a>
+            </div>
+        </ion-content>
+    </form>
+</ion-view>

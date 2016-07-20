@@ -1,0 +1,58 @@
+<ion-view class='RepairDetailStyle'>
+    <ion-nav-title>报修详情</ion-nav-title>
+    <form name="myForm ">
+        <ion-content has-bouncing="false " scrollbar-y="false ">
+            <!-- 上半部分 -->
+            <div class="repairContent ">
+                <div class="repairInfo ">
+                    <p class="oddNum ">报修单号：{{statusData.id}}</p>
+                    <p class="oddContent ">{{statusData.content}}</p>
+                    <!-- <ul class="imgList ">
+                            <li ng-repeat="img in statusData.imageList track by $index "><img ng-src="{{img.src}} "></li>
+                        </ul> -->
+                    <div class="imgContent scrollBox" ng-show="statusData.imageList.length !='0'">
+                        <ion-scroll zooming="true" direction="x" scrollbar-x="false" scrollbar-y="false" min-zoom="1" max-zoom="1" has-bouncing="true" class="imgHeight">
+                            <ion-gallery ion-gallery-items="statusData.imageList" ion-gallery-row="statusData.imageList.length"></ion-gallery>
+                        </ion-scroll>
+                    </div>
+                </div>
+                <!-- 中间进展部分 -->
+                <div class="repairProgress ">
+                    <p class="progressStatus " ng-click='isShow=!isShow'>状态：<span>{{progressData.status}}</span>
+                        <button ng-if='isShow' ng-class="{ 'top':isShow} " class="detailButton ">展开详情</button>
+                        <button ng-if='!isShow' ng-class="{ 'top':isShow} " class="detailButton ">收起详情</button>
+                    </p>
+                    <!-- 这里写中间的布局   -->
+                    <div ng-class="{ 'hideProgress':isShow} " class="progress ">
+                        <div class="progressChart " ng-repeat='item in progressData.progressList'>
+                            <span class='progressIcon'></span>
+                            <div class="detailProgress ">
+                                <p class="jidu ">{{item.taskName}}
+                                    <br />{{item.taskDate}}
+                                    <br/>{{item.taskTime}}</p>
+                                <div class="progressContent ">
+                                    <span class="dot ">·</span>
+                                    <p class="haveImage" ng-repeat='progressItem in item.taskContentList'>
+                                        <span class="descWord ">{{progressItem.taskContent}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="proBottomLine " ng-if="progressData.taskStatus!='9' ">
+                    </div>
+                </div>
+                <!-- 底部评价部分 -->
+                <div class="repairEvaluation " ng-show="canSubmit.yes ">
+                    <div class="flowerBox ">
+                        <p class="flower ">
+                            <span class="pingjia ">请评价</span>
+                            <span class='goodFlower' ng-click='setSpeedStar(i)' ng-class="{star:satisfied>=i}" ng-repeat=" i in [1,2,3,4,5]"></span>
+                            <!-- <span class='goodText'>{{satisfiedDegree}}</span> -->
+                        </p>
+                    </div>
+                    <!-- 提交的按钮 -->
+                    <button ng-click="postEvaluate()" class="submit">{{submitInfo.text}}</button>
+                </div>
+        </ion-content>
+    </form>
+</ion-view>

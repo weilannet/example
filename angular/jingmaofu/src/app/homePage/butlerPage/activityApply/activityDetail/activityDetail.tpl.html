@@ -1,0 +1,21 @@
+<ion-view class="activityDetailStyle">
+    <ion-nav-title>活动详情</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <div class="shareBut" ng-click="share()"></div>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="false" scrollbar-y="false">
+        <img src="{{data.src}}" class="detailImg" mr-img-convert imgw="7.5" imgh="3.9">
+        <div class="actContent">
+            <div class="actTitle">活动介绍</div>
+            <div class="actText" ng-bind-html="data.content"></div>
+            <div class="actContact">
+                <p><span>活动开始时间：</span>{{data.publishDate}}</p>
+                <p><span>活动地点：</span>{{data.address}}</p>
+                <p><span>报名范围：</span>{{data.scope}}</p>
+                <p><span>活动咨询：</span>{{data.phone}}</p>
+            </div>
+            <button ng-click="apply()" class="applyBnt button" ng-show="usertype!='1'" ng-disabled="applyState.aplState" ng-if="data.status==0">报名</button>
+            <!-- <button class="applyBnt button" ng-disabled="true" ng-if="data.status!=1 || data.status!=0">已报名</button> -->
+        </div>
+    </ion-content>
+</ion-view>

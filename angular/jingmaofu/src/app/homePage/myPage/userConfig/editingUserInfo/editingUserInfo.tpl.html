@@ -1,0 +1,18 @@
+<ion-view class="editingUserInfo">
+    <ion-nav-title>修改个人信息</ion-nav-title>
+    <ion-content class="editingUserInfoContent" has-bouncing="false" scrollbar-y="false">
+        <div class="editContent">
+            <div class="items clearfix" ng-click="addAttachment()">
+                <div class="lft">头像</div>
+                <div class="rgt"><img ng-src="{{userInfo.logo}}" ng-model="userInfo.logo">&nbsp;></div>
+            </div>
+            <input type="text" class="items" placeholder="真实姓名" value="{{userInfo.realName}}" ng-model="userInfo.realName">
+            <input type="text" class="items" placeholder="请输入昵称" value="{{userInfo.nickName}}" ng-model="userInfo.nickName">
+            <input type="number" class="items" placeholder="手机号" ng-maxlength="11" value="{{userInfo.mobile}}" ng-model="userInfo.mobile">
+            <input type="text" class="items" placeholder="性别" value="{{userInfo.sex}}" ng-model="userInfo.sex">
+        </div>
+        <div class="wrap">
+            <div class="button submit" ng-click="modifyPersonalInfo();">完成</div>
+        </div>
+    </ion-content>
+</ion-view>

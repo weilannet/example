@@ -1,0 +1,21 @@
+<ion-view class="deliveryAppointmentPage">
+    <ion-nav-title>交付预约</ion-nav-title>
+    <ion-content has-bouncing="false" scrollbar-y="false">
+        <div class="appiontBkg">
+            <a href="/#/details/{{appItem.id}}/{{appItem.projectName}}/{{appItem.planName}}/{{appItem.state}}" class="appiontItem" ng-click="" ng-repeat="appItem in data">
+                <div class="appItemTop">
+                <!-- 少src路径 -->
+                    <img class="appItemPic" ng-src="{{appItem.url}}">
+                    <div class="appItemStatus">
+                        <div class="appContent">{{appItem.planName}}</div>
+                        <div class="button appDetail" ng-bind-html="appItem.state == 'start'? '查看详情' : '已结束';"></div>
+                    </div>
+                </div>
+                <div class="appItemBottom">
+                    <!-- 交付时间：{{data.ys}}年{{data.ms}}月{{data.ds}}日至{{data.ye}}年{{data.me}}月{{data.de}}日 -->
+                    {{appItem.planStart}}至{{appItem.planEnd}}
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<ion-view class="valueGoodsList">
+    <ion-nav-title>商品列表</ion-nav-title>
+    <ion-content class="valueGoodsListContent" has-bouncing="false" scrollbar-y="false">
+        <div class="goodsItem clearfix" ng-repeat="data in goodsItem" ng-click="goGoodsDetail();">
+            <div class="left"><img ng-src="{{data.src}}" alt=""></div>
+            <div class="right">
+                <div class="title">{{data.title}}</div>
+                <div class="shipping">
+                    <span>快递费用：{{data.shipping}}</span>
+                    <span>发货方式：{{data.goods}}</span>
+                </div>
+                <div class="price">价格：<span>{{data.price}}元</span></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

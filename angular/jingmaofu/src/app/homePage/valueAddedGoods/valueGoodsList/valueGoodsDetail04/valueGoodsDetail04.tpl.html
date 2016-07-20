@@ -1,0 +1,25 @@
+<ion-view class="valueGoodsDetail">
+    <ion-nav-title>{{goodDetail.name}}</ion-nav-title>
+    <ion-content class="valueGoodsDetailContent" has-bouncing="false" scrollbar-y="false">
+        <div class="mainInfo clearfix">
+            <div class="left">
+                <img ng-src="{{goodDetail.topPic}}" alt="">
+            </div>
+            <div class="right">
+                <div class="name">{{goodDetail.name}}</div>
+                <div class="area"><span>{{goodDetail.block}}</span><span>{{goodDetail.type}}</span></div>
+                <div class="time">电话：{{goodDetail.telephone}}</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="title">商户介绍</div>
+            <div class="content">
+                <div>{{goodDetail.contentText}}</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="title">商户地址</div>
+            <div class="content">{{goodDetail.address}}</div>
+        </div>
+    </ion-content>
+</ion-view>

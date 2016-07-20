@@ -1,0 +1,25 @@
+<ion-view class="shippingAddress">
+    <ion-nav-title>收货地址</ion-nav-title>
+    <ion-content class="shippingAddressContent" has-bouncing="false" scrollbar-y="false">
+        <div class="addressItems" ng-repeat="data in addressData">
+            <div class="itemHeader clearfix">
+                <span class="itemLft">{{data.userName}}</span>
+                <span class="itemRgt">{{data.userPhone}}</span>
+            </div>
+            <div class="itemContent">{{data.address}}</div>
+            <div class="itemBottom clearfix">
+                <div class="itemLft">
+                    <span class="circle"></span>
+                    <span class="setDefault">设置为默认地址</span>
+                </div>
+                <div class="itemRgt">
+                    <span class="edit">编辑</span>
+                    <span class="delete">删除</span>
+                </div>
+            </div>
+        </div>
+        <a href="/newAddressPage">
+            <div class="addNewAddr">新增收货地址</div>
+        </a>
+    </ion-content>
+</ion-view>

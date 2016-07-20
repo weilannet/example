@@ -1,0 +1,30 @@
+<ion-modal-view ng-controller="ownerAppealController" hide-nav-bar="false" class="ownerAppealPage
+">
+    <ion-content has-bouncing="false" scrollbar-y="false" class="ownerAppealContent">
+        <div class="headerBar">
+            业主申诉
+            <div class="backbtn" ng-click="goBack();"></div>
+        </div>
+        <form name="ownerAppealForm" ng-submit="loginShensu(userData,ownerAppealForm);" novalidate>
+            <div class="tongzhutxt">如果您是金茂业主，您可以通过输入更多信息来确认您的信息</div>
+            <div class="userInfo mb30">
+                <div class="list">
+                    <div class="items clearfix">
+                        <span class="bkg"></span>
+                        <input type="text" name="phoneName" ng-model="userData.realName" placeholder="请输入您的姓名" required>
+                    </div>
+                    <div class="items clearfix">
+                        <span class="bkg"></span>
+                        <input type="text" name="address" ng-model="userData.address" placeholder="请输入您的房号" required>
+                    </div>
+                    <div class="items clearfix">
+                        <span class="bkg"></span>
+                        <input type="text" name="idNo" name="idCard" ng-model="userData.idCard" minlength="15" maxlength="18" required placeholder="请输入身份证号码" ng-model="data.idNo">
+                    </div>
+                </div>
+            </div>
+            <div class="wrap">
+                <div class="button submit" ng-click="approve(ownerAppealForm);" ng-disabled="ownerAppealForm.$submitted || !ownerAppealForm.$valid">提交</div>
+            </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,12 @@
+<ion-view>
+    <ion-nav-title>
+        <!-- ng-model -->
+        <div class="houseShow">
+            <a ng-click="goCommunityList($event);">{{community.projectName}}
+            <span></span>
+        	</a>
+            <div class="msgBtn" ng-click="goPersonalInfo($event);"></div>
+        </div>
+    </ion-nav-title>
+    <div ng-include="'homePage/virtualHome.tpl.html'"></div>
+</ion-view>

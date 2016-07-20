@@ -1,0 +1,82 @@
+<ion-view class="registerPage" ng-controller="registerController">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button class="button backBtn" ng-click="toLogin()"></button>
+        </ion-nav-buttons>
+        <ion-nav-title>用户注册</ion-nav-title>
+    </ion-nav-bar>
+    <ion-content has-bouncing="false" scrollbar-y="false" class="registerContent">
+        <form name="registerForm" novalidate>
+            <div class="items clearfix">
+                <span></span>
+                <input type="text" name="phone" ng-model="userData.mobileNumber" minlength="11" maxlength="12" placeholder="请输入您的手机号" required>
+            </div>
+            <div class="items clearfix">
+                <span></span>
+                <input type="password" ng-model="userData.passWord" name="pwd1" minlength="6" maxlength="20" placeholder="请输入您的密码" required>
+            </div>
+            <div class="items clearfix">
+                <span></span>
+                <input type="password" name="pwd2" ng-model="userData.confirmPass" minlength="6" maxlength="20" placeholder="请再次输入您的密码" required>
+            </div>
+            <div class="items clearfix">
+                <span></span>
+                <input type="text" name="auth" ng-model="userData.phoneCode" minlength="6" maxlength="6" required placeholder="输入短信验证码">
+                <div class="button spec" ng-click="phoneCode(userData.mobileNumber,registerForm);" ng-disabled="showButton">{{paracont}}</div>
+            </div>
+            <div class="protocol">
+                <ion-checkbox ng-model="regInfo.isChecked"></ion-checkbox>我同意<a ng-click="appointmentNote.xieyi = true">《入会认证协议》</a>
+            </div>
+            <div class="wrap">
+                <div class="button submit" ng-click="register(registerForm);" ng-disabled="registerForm.$submitted || !registerForm.$valid || !regInfo.isChecked">入会</div>
+            </div>
+        </form>
+        <div class="appointmentNote" ng-show="appointmentNote.xieyi">
+            <h3 class="noteTitle">金茂荟入会协议</h3>
+            <div class="noteText">
+                <ion-scroll direction="y" style="height:6rem;">
+                    <p>请您仔细阅读以下入会条款：
+                        <br>
+                        <br> 金茂荟入会章程
+                        <br>
+                        <br>第一条
+                        <br>金茂荟是中国金茂控股集团有限公司（以下简称中国金茂）为提升客户服务品质，使业主尊享更多专业化置业和生活服务而设立的非盈利性会员俱乐部组织。金茂荟也是中国高端不动产领导品牌—金茂的理念载体。
+                        <br>
+                        <br>第二条
+                        <br>金茂作为覆盖高端住宅、星级酒店、地标商业的全业态品牌，从居家到办公，从度假到商业，致力于以场所精神与品质服务构建高端人士的全时生活圈。作为中国金茂与客户之间沟通交流的重要平台，金茂荟将通过丰富多彩的会员活动和定制化的会员读本，为高端客户群体提供更多专享增值服务。
+                        <br>
+                        <br>第三条
+                        <br>本守则对本会的所有会员均有在会的约束力，会员在会期间不能损坏中国金茂及本会的社会声誉，本守则构成本会与每名会员间的一份合约，一旦签署入会申请表格并且得到本会确认，即成为本会会员，同时即视作同意本守则约束。会员享有并承担本章程所规定的权利和义务。
+                        <br>
+                        <br>第四条
+                        <br>本会有权随时更改会员守则，并以本会合适的时间及方式通知会员。
+                        <br>
+                        <br>第五条
+                        <br>会籍 年满18周岁的自然人，可通过中国金茂各城市项目售楼处、金茂荟活动现场索取书面入会申请表格，或登陆金茂荟APP填写并提交入会申请表格。
+                        <br>
+                        <br>第六条
+                        <br>会籍生效 会员会籍须得到本会的批准和确认，本会有绝对酌情权批准或拒绝会籍申请要求， 无须作任何解释。会员对本会的组织、运作或管理有建议权，但对本会财产无任何所有权或追索权。会籍不得转让他人。
+                        <br>
+                        <br>第七条
+                        <br>解除会籍 会员不得利用本会或本会提供的优惠、服务、资料或文件做出任何商业或有损本会的活动。本会若认为会员行为对本会有损害，与本会的利益相违或违反本会员守则的任何条款，本会有权解除会员会籍。会员被解除会籍后，停止拥有会员的任何权利，不再有权参加本会组织的会员活动，且不再有权接受及享有本会提供的各项优惠及服务。
+                        <br>
+                        <br>第八条
+                        <br>退会 会员提出退会，须向本会提交书面退会申请。会员退会后，停止拥有会员的任何权利，不再有权参加本会组织的会员活动，且不再有权接受及享有本会提供的各项优惠及服务。
+                        <br>
+                        <br>第九条
+                        <br>个人信息 会员须按入会申请表格要求，提供真实、准确、完整的个人资料，以便本会审批入会申请。若会员提供虚假、不全的资料，将导致本会无法接受申请或入会之后无法享受正常的会员权益。会员有权随时要求查阅或更新个人资料。
+                        <br>
+                        <br>第十条
+                        <br>终止运作 本会有绝对酌情权于任何时候终止本会的运作，而无须说明任何理由。在本会的运作被终止后，会员的一切权利及优惠即告终止。在任何情况下，会员不得亦不能因本会终止运作而向本会或中国金茂提出任何性质的索偿或要求。
+                        <br>
+                        <br>第十一条
+                        <br>本会保留修改此章程之权利，而无需事前通知。
+                        <br>
+                        <br>第十二条
+                        <br>本会组织运作相关规则及方式的解释权归中国金茂所有。</p>
+                </ion-scroll>
+            </div>
+            <div class="button button-positive btnyd" ng-click="appointmentNote.xieyi=false">已阅读</div>
+        </div>
+    </ion-content>
+</ion-view>

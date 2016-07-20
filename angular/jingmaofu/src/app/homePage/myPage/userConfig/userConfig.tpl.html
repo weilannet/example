@@ -1,0 +1,42 @@
+<ion-view class="userConfig">
+    <ion-nav-title>账号管理</ion-nav-title>
+    <ion-content class="userConfigContent" has-bouncing="false" scrollbar-y="false">
+        <div class="userInfo clearfix">
+            <div class="lft">我的信息</div>
+            <div class="rgt" ng-if="userData.userType == '2'? '会员' : '业主';"></div>
+        </div>
+        <div class="userItemContent">
+            <div class="items clearfix" ng-click="addAttachment()">
+                <div class="lft">头像</div>
+                <div class="rgt"><img ng-src="{{userData.logo}}"></div>
+            </div>
+            <div class="items clearfix">
+                <div class="lft">真实姓名</div>
+                <div class="rgt">{{userData.realName}}</div>
+            </div>
+            <div class="items clearfix">
+                <div class="lft">我的昵称</div>
+                <div class="rgt">{{userData.nickName}}</div>
+            </div>
+            <div class="items clearfix">
+                <div class="lft">手机号</div>
+                <div class="rgt">{{userData.mobile}}</div>
+            </div>
+            <div class="items clearfix">
+                <div class="lft">身份证</div>
+                <div class="rgt">{{userData.idCard}}</div>
+            </div>
+        </div>
+        <div class="changePass">
+            <div class="itens clearfix">
+                <div class="lft">修改密码</div>
+                <div class="rgt"></div>
+            </div>
+        </div>
+        <div class="wrap">
+            <a href="/editingUserInfo">
+                <div class="button submit">修改</div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

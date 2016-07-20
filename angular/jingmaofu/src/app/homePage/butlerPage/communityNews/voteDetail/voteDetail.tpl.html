@@ -1,0 +1,29 @@
+<ion-view class="votePage">
+    <ion-nav-title>社区公告-投票</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <div class="shareBut" ng-click="share()"></div>
+    </ion-nav-buttons>
+    <ion-content class="votePageContent" has-bouncing="false" scrollbar-y="false">
+        <div class="voteHeader ">
+            <div class="voteTitle">{{voteData.voteTitle}}</div>
+            <div class="voteNumber">{{voteData.count}}
+                <br/>参与人数</div>
+        </div>
+        <div class="result mb2">投票结果</div>
+        <div class="voteItems clearfix" ng-repeat="data in voteData.announcementVoteList">
+            <div class="left" ng-if="data.imgUrl != '' ">
+                <img ng-src="{{data.imgUrl}}">
+            </div>
+            <div class="right" ng-class="{rightAll:data.imgUrl == ''}">
+                <div class="voteContent">{{data.description}}</div>
+                <div class="percent">
+                    <span class="left mr-count" width="width" data-maxW="{{voteData.count}}" data-numW="{{data.voteNumber}}"></span>
+                    <span class="num">{{data.percent | number:2}}%</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="bottom pt4">
+            <div class="button submit" ng-click="openModal();">分享</div>
+        </div> -->
+    </ion-content>
+</ion-view>

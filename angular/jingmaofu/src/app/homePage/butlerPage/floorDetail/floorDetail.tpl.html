@@ -1,0 +1,30 @@
+<ion-view class="floorDetail">
+    <ion-nav-title>楼盘详情</ion-nav-title>
+    <ion-content class="floorDetailContent" has-bouncing="false" scrollbar-y="false">
+        <ion-slide-box class="wrap" does-continue="true" auto-play="true" slide-interval="3000" on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="sliderPic in detailData.sliderPic track by $index">
+                <img ng-src="{{sliderPic}}" alt="">
+            </ion-slide>
+        </ion-slide-box>
+        <div class="projectIntro">
+            <div class="title">项目介绍</div>
+            <div class="content" ng-show="!showMore">{{detailData.projectIntro | characters: 40}}</div>
+            <div class="content" ng-show="showMore">{{detailData.projectIntro}}</div>
+            <div class="showMore" ng-click="showMore = 'true'" ng-show="!showMore">展开∨</div>
+        </div>
+        <div class="mainHouse">
+            <div class="title">主力户型</div>
+            <ion-scroll class="scrollout" direction="x" scrollbar-x="false" class="mainPic">
+                <img class="wrap" ng-repeat="data in detailData.mainHousePic track by $index" ng-src="{{data}}" alt="" ng-click="openModal();">
+            </ion-scroll>
+        </div>
+        <div class="other">
+            <div class="title">周边配套</div>
+            <div class="content">{{detailData.otherSupply}}</div>
+        </div>
+        <div class="other">
+            <div class="title">交通位置</div>
+            <div class="content">{{detailData.traffic}}</div>
+        </div>
+    </ion-content>
+</ion-view>

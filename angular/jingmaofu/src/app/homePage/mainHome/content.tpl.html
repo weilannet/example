@@ -1,0 +1,97 @@
+<ion-view class="homePage">
+    <ion-content has-bouncing="false" scrollbar-y="false" class="homeContent">
+        <ion-slide-box class="wrap" does-continue="true" auto-play="true" slide-interval="3000" on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="sliderImg in sliderPic track by $index">
+                <img ng-src="{{sliderImg.newsImg}}" ng-click="selectPage(sliderImg.newsId)">
+            </ion-slide>
+        </ion-slide-box>
+        <div class="homeBtn">
+            <a href="/deliveryAppointment" class="communityMsg">
+                <span>交付预约</span>
+            </a>
+            <a href="/propertyrepair" class="postRepair">
+                <span>物业报修</span>
+            </a>
+            <a href="/butlerPage/communityNews" class="convenientInformation">
+                <span>社区公告</span>
+            </a>
+            <a href="/convenientInformation" class="appointment">
+                <span>便民信息</span>
+            </a>
+        </div>
+        <div class="homeImg"><img ng-src="{{communityMsg.newsPic}}" /></div>
+        <div class="homeMsg">
+            <ion-list>
+                <ion-item class="homeMsgRepairItems" ng-repeat="data in noReadArr track by $index">
+                    <div ng-click="goRepairDetail($index,noReadArr,data.repairId,data.taskId)">
+                        <span class="bkg"></span>
+                        <h4 class="msgTitle">[报修消息]</h4>
+                        <p class="msgContent">{{data.taskDate}}{{data.taskContent}}</p>
+                        <span class="msgDetailBtn"></span>
+                        <ion-option-button ng-click="deleteMarkRead($index,noReadArr,data.taskId);" class="button-assertive">
+                            删除
+                        </ion-option-button>
+                    </div>
+                </ion-item>
+                <hr/>
+                <ion-item class="homeMsgChargeItems">
+                    <span class="bkg"></span>
+                    <h4 class="msgTitle">[{{communityMsg.misMsg2.title}}]</h4>
+                    <p class="msgContent">{{communityMsg.misMsg2.content}}</p>
+                    <span class="msgDetailBtn"></span>
+                    <ion-option-button class="button-assertive">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+                <hr/>
+                <ion-item class="homeMsgAppointItems">
+                    <span class="bkg"></span>
+                    <h4 class="msgTitle">[{{communityMsg.misMsg3.title}}]</h4>
+                    <p class="msgContent">{{communityMsg.misMsg3.content}}</p>
+                    <span class="msgDetailBtn"></span>
+                    <ion-option-button class="button-assertive">
+                        删除
+                    </ion-option-button>
+                </ion-item>
+                <hr/>
+            </ion-list>
+        </div>
+        <div class="propertyMsg" ng-click="goCommunityDetail(communityAnnounce);">
+            <h4 class="ppMsgTitle"><b class="ppMsgIcon"></b>物业公告：{{communityAnnounce.title}}</h4>
+            <!-- 假数据 -->
+            <p class="ppMsgContent" ng-bind-html="communityAnnounce.contentSynopsis"></p>
+            <div class="ppbottom">
+                <div class="ppRead">
+                    <!-- <div class="ppReadPic">
+                        <span class="ppReadPicItem" ng-repeat="touxiangPic in communityMsg.propertyMsg.readPic track by $index">
+                            <img ng-src="{{touxiangPic}}" alt="">
+                        </span>
+                    </div> -->
+                    <!-- <div class="ppReadPerson"><span>{{communityMsg.propertyMsg.readNum}}</span>人阅读</div> -->
+                </div>
+                <div class="pprgt">
+                    <div class="ppShare"><b class="ppShareIcon"></b>{{communityAnnounce.likeNum}}</div>
+                    <div class="ppComment"><b class="ppCommentIcon"></b>{{communityAnnounce.replyNum}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="header clearfix">
+                <div class="lft">商家特惠</div>
+                <a href="/valueGoodsList">
+                    <div class="rgt">更多</div>
+                </a>
+            </div>
+            <div class="content">
+                <div class="pic" ng-click="toDetail(0)"></div>
+                <div class="pic" ng-click="toDetail(1)"></div>
+                <div class="pic" ng-click="toDetail(2)"></div>
+                <div class="pic" ng-click="toDetail(3)"></div>
+                <div class="spec">
+                    <div class="pic" ng-click="toDetail(4)"></div>
+                    <div class="pic" ng-click="toDetail(5)"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

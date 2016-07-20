@@ -1,0 +1,76 @@
+<ion-view class="appointDetailsPage">
+    <!-- 交付预约详情页 未选择交付时间 -->
+    <ion-nav-title>交付预约详情</ion-nav-title>
+    <ion-content scroll="true" has-bouncing="false" scrollbar-y="false" ng-show="pageShow.page1">
+        <div class="appDetailBkg">
+            <img class="appDetailImg" ng-src="{{data.url}}">
+            <div class="detailContent">
+                <div class="detailTitle">{{data.planName}}</div>
+                <div class="detailInfo">
+                    <div class="detailTime">
+                        <div class="note">
+                            <span class="cored">提示：</span>该交付预约功能仅为方便业主收房所使用，与房屋交付相关的其他信息均以双方签署的买卖合同及入住通知书的约定为准。
+                        </div>
+                        <span class="bld">集中交付时间：</span>
+                        <!-- <div>{{data.ys}}年{{data.ms}}月data.ds日至{{data.ye}}年{{data.me}}月{{data.de}}日</div> -->
+                        <div>{{data.planStart}}至{{data.planEnd}}</div>
+                    </div>
+                    <div class="detailPlan"><span class="bld">计划描述：</span>
+                        <p>{{data.description}}</p>
+                    </div>
+                    <div class="detailAddress">
+                        <span class="bld">集中交付地点：</span>
+                        <div>{{data.focusAddress}}</div>
+                    </div>
+                    <!-- <div class="detailRoomList">
+                        <div class="roomTitle"><span class="bld">交付房间列表：</span></div>
+                        <div class="roomAddress" ng-repeat="address in dataRoomList">{{address}}</div>
+                    </div> -->
+                    <div class="detailAdd" ng-if="data.note != '';"><span class="bld">补充说明：</span>{{data.note}}</div>
+                    <!-- ng-if="showBtn1 && showBtn2" -->
+                    <div class="detailAggreement" ng-show="showBtn1 && showBtn2">
+                        <ion-checkbox ng-model="isChecked"></ion-checkbox><span class="bld">已阅读</span><a ng-click="appointmentNote.xieyi = true">《交付预约温馨提示》</a>
+                    </div>
+                    <div class="detailChoose" ng-show="showBtn1 && showBtn2">
+                        <div ng-disabled="!isChecked" class="button bdno" ng-if="appointTimes != '1';" ng-click="openModal()" />选择交付时间</div>
+                </div>
+                <div class="appointmentNote" ng-if="appointmentNote.xieyi">
+                    <h3 class="noteTitle">交付预约温馨提示</h3>
+                    <div class="noteText">
+                        <ion-scroll direction="y" style="height:6rem;">
+                            <h4>请携带以下资料前来办理收房手续：</h4>
+                            <p>1、 业主本人及家庭成员身份证、户口本、结婚证（已婚）、北京市工作居住证/暂住证（外地户口）；护照、在华居留证（外籍）；往来大陆通行证、回乡证（港澳台）；组织机构代码证、营业执照（经年检）、公章（企业）。以上证件均为原件。
+                                <br>2、 委托办理收房手续的，除携带上述证件外，还需代理人身份证原件、经公证的授权委托书原件。
+                                <br>3、 全部房款票据原件（发票/收据）、合同原件和入住通知书原件。
+                                <br>4、 以上内容仅作参考，详情见入住通知书。
+                            </p>
+                        </ion-scroll>
+                    </div>
+                    <div class="button button-positive btnyd" ng-click="appointmentNote.xieyi=false">已阅读</div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </ion-content>
+    <!-- 交付预约详情页 已选择交付时间 -->
+    <ion-content ng-show="pageShow.page2">
+        <div class="appDetailBkg">
+            <img class="appDetailImg" ng-src="{{data.url}}">
+            <div class="detailContent">
+                <div class="detailInfo whtbkg">
+                    <div class="detailName"><span class="bld">姓名：</span>{{aftUserInfo.realName}}</div>
+                    <div class="detailHouse">
+                        <span class="bld">房屋：</span>
+                        <br />
+                        <div class="roomAddress" ng-repeat="aftAddress in aftHouseInfo.houseList">{{aftAddress}}</div>
+                    </div>
+                    <div class="detailAppointTime"><span class="bld">您预约的时间为：</span>{{aftAppoitnTime.times}}</div>
+                    <div class="detailDeliveryAddr"><span class="bld">提示：</span>{{data.note}}</div>
+                </div>
+                <div class="detailChoose pt100">
+                    <div class="button mb20 bdno" ng-click="openModal()">修改预约</div>
+                    <div class="button bbgray bdno" ng-click="showConfirm(data.planName)">取消预约</div>
+                </div>
+            </div>
+    </ion-content>
+</ion-view>

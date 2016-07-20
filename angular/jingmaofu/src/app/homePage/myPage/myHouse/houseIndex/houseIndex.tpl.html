@@ -1,0 +1,20 @@
+<ion-view class="houseIndexStyle">
+    <ion-nav-title>我的房产</ion-nav-title>
+    <ion-content class="houseIndex" has-bouncing="false" scrollbar-y="false">
+        <div class="listTit">
+            <span class="iconBack"></span>默认房产
+        </div>
+        <div ng-repeat="item in data">
+            <a class="houseItem" href="/#/houseDetail/{{item.id}}/0" ng-if="item.state == '0' ">
+            <div class="listTitle">{{item.address}}</div>
+            <div class="nextBack"></div>
+        </a>
+        </div>
+        <div class="listBot">
+            <span class="iconBack"></span>其他房产
+        </div>
+        <a class="houseItem" ng-repeat="item1 in data1" href="/#/houseDetail/{{item1.id}}/{{item1.state}}" ng-if="item1.state=='1'">
+            <div class="listTitle">{{item1.address}}</div>
+        </a>
+    </ion-content>
+</ion-view>

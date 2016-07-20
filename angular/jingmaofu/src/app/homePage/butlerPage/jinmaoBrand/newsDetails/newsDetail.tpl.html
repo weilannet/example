@@ -1,0 +1,15 @@
+<ion-view class="newsDetailPage">
+    <ion-nav-title>新闻详情</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <div class="shareBut" ng-click="share()"></div>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="false" scrollbar-y="false">
+        <div class="shareMain">
+            <h1>{{data.title}}</h1>
+            <p class="name">{{data.operator}}</p>
+            <p class="data">{{data.operatorTimeString}}</p>
+            <hr>
+            <div class="content" ng-bind-html="data.comment"></div>
+        </div>
+    </ion-content>
+</ion-view>

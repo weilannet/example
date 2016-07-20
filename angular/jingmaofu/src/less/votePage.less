@@ -1,0 +1,151 @@
+.votePage {
+    .votePageContent {
+        background-color: #e6e6e6;
+        .voteHeader {
+            background-color: #fff;
+            padding: 0.2rem;
+            margin-bottom: 1px;
+            .voteTitle {
+                display: inline-block;
+                width: 75%;
+                font-size: 0.28rem;
+                color: #454545;
+            }
+            .voteNumber {
+                display: inline-block;
+                text-align: center;
+                width: 23%;
+                font-size: 0.2rem;
+                color: #ea3038;
+                border: 1px solid #ea3038;
+            }
+        }
+        .result {
+            background-color: #fff;
+            padding: 0.2rem;
+            font-size: 0.24rem;
+            color: #ea3038;
+        }
+        .welcome {
+            background-color: #fff;
+            padding: 0.2rem;
+            font-size: 0.24rem;
+            color: #999999;
+            margin-bottom: 0.2rem;
+        }
+        .voteItems {
+            background-color: #fff;
+            margin-bottom: 0.2rem;
+            padding: 0.2rem;
+            .checkbox input:checked:before,
+            .checkbox input:checked + .checkbox-icon:before {
+                background: #fff;
+            }
+            .checkbox input:before,
+            .checkbox-icon:before {
+                border-style: none;
+            }
+            .select {
+                float: left;
+                width: 0.4rem;
+                height: 0.4rem;
+                border-radius: 50%;
+                border: 1px solid #b0b0b0;
+                margin-right: 0.3rem;
+            }
+            .active {
+                background: url(../images/isSelectedIcon.png) no-repeat center;
+                border: none;
+            }
+            .votePic {
+                float: left;
+                border: 1px solid #b0b0b0;
+                margin-right: 0.3rem;
+                img {
+                    width: 1.8rem;
+                    height: 1.8rem;
+                }
+            }
+            .voteContent {
+                float: left;
+                width: 4.2rem;
+                word-wrap: break-word;
+                font-size: 0.28rem;
+                color: #666666;
+            }
+            .left {
+                float: left;
+                img {
+                    width: 1.8rem;
+                    height: 1.8rem;
+                }
+            }
+            .right {
+                float: right;
+                width: 70%;
+                height: 1.8rem;
+                .voteContent {
+                    width: 100%;
+                    word-wrap: break-word;
+                    font-size: 0.28rem;
+                    color: #666666;
+                    margin-bottom: 0.2rem;
+                }
+                .percent {
+                    width: 100%;
+                    .left {
+                        height: 0.5rem;
+                        margin-right: 0.2rem;
+                    }
+                    .num {
+                        width: auto;
+                        line-height: 0.5rem;
+                    }
+                }
+            }
+            .rightAll {
+                float: right;
+                width: 100%;
+                height: 1.8rem;
+                .voteContent {
+                    width: 100%;
+                    word-wrap: break-word;
+                    font-size: 0.28rem;
+                    color: #666666;
+                    margin-bottom: 0.2rem;
+                }
+                .percent {
+                    width: 100%;
+                    .left {
+                        height: 0.5rem;
+                        margin-right: 0.2rem;
+                    }
+                    .num {
+                        width: auto;
+                        line-height: 0.5rem;
+                    }
+                }
+            }
+        }
+        .endDate {
+            padding: 0.2rem;
+            font-size: 0.28rem;
+            color: #454545;
+            text-align: right;
+            margin-bottom: 0.3rem;
+        }
+        .bottom {
+            text-align: center;
+        }
+    }
+    .mb2 {
+        margin-bottom: 0.2rem!important;
+    }
+    .pt4 {
+        padding-top: 0.4rem;
+    }
+    .item-checkbox .checkbox {
+        top: 100%;
+        left: 100%;
+    }
+}

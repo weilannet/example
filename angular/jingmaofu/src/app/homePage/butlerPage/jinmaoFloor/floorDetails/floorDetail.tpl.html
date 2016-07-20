@@ -1,0 +1,26 @@
+<ion-view class="floorDetailPage">
+    <ion-nav-title>楼盘资讯详情</ion-nav-title>
+    <ion-nav-buttons side="right">
+        <div class="shareBut" ng-click="share()"></div>
+    </ion-nav-buttons>
+    <ion-content has-bouncing="false" scrollbar-y="false">
+        <div class="myslides mr-full-page">
+            <ks-swiper-container swiper="swiper" prevent-clicks="false" direction="vertical" on-ready="onReadySwiper(swiper)">
+                <ks-swiper-slide ng-repeat="detail in data">
+                    <div class="mr-full-page">
+                        <img ng-src="{{detail.img}}" mr-full-img ng-if="!!detail.title">
+                        <img ng-src="{{detail.img}}" mr-full-img ng-if="!detail.title" ng-click="showPic(detail.img)">
+                        <div class="mr-fade-out">
+                            <div class="circle" ng-if="!!detail.title"></div>
+                            <div class="title newCon" ng-if="detail.title">
+                                <h2>{{detail.title}}</h2>
+                            </div>
+                            <p class="content newCon" ng-if="detail.content">{{detail.content}}</p>
+                        </div>
+                        <div ng-class="{'down':!$last}"></div>
+                    </div>
+                </ks-swiper-slide>
+            </ks-swiper-container>
+        </div>
+    </ion-content>
+</ion-view>

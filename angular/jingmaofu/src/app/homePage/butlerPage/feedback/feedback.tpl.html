@@ -1,0 +1,22 @@
+<ion-view class="feedBackPage">
+    <ion-nav-title>意见反馈</ion-nav-title>
+    <ion-content class="fb_content" has-bouncing="false" scrollbar-y="false">
+        <form name="feedBack" novalidate ng-submit="feedBack2(feedBack);">
+            <label class="buildName" ng-if="usertype != '2'">
+                <!-- 业主 同住人 -->
+                <select ng-model="defaultID.selectID" ng-options="houselist.id as houselist.address for houselist in data.houseList">
+                </select>
+            </label>
+            <textarea class="textarea" ng-model="inputdata.fb_content" maxlength="150" minlength="1" required placeholder="请输入您的问题描述"></textarea>
+            <div class="descript">
+                <p>说明</p>
+                <span>您反馈的相关问题，我们尽可能在一个工作日内给您回复（周一至周五9:00至17:00），感谢您的支持</span>
+            </div>
+            <div class="telinfo">
+                <p>金茂北京服务品质监督热线：010-84140101</p>
+            </div>
+            <input type="submit" value="确认提交" class="fb_submit button" ng-disabled="!feedBack.$valid || feedBack.$submitted">
+    </ion-content>
+    </form>
+    </ion-content>
+</ion-view>

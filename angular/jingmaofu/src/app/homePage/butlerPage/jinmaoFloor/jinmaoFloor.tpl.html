@@ -1,0 +1,20 @@
+<ion-view class="jinmaoFloorPage">
+    <ion-nav-title>楼盘资讯</ion-nav-title>
+    <ion-content has-bouncing="false" scrollbar-y="false">
+        <div class="floor" ng-repeat="data in data" ng-class="{'telhiden':!data.phone}" ng-class="{'pricehiden':!data.priceAverage}">
+            <a href="/floorDetail/{{data.id}}" ng-class="{'imghiden':!data.favorable}">
+                <div class="title">
+                    <h2>{{data.name}}<div class="h2Bg1"></div><div class="h2Bg2"></div></h2>
+                </div>
+                <img ng-src="{{data.panoramaImg}}" alt="" mr-img-convert imgw="7.2" imgh="4">
+            </a>
+            <span class="youhui" ng-if="data.favorable">{{data.favorable}}</span>
+            <span class="price" ng-if="data.priceAverage">均价：</span>{{data.priceAverage}}<span ng-show="!!data.priceAverage">元/m²</span>
+            <a href="tel:{{data.phone}}" class="telephone" ng-if="data.phone">{{data.phone}}</a>
+            <div class="foot" ng-repeat="type in data.typeList" ng-class="{'typehiden':!type}">
+                <span ng-if="type">{{type}}</span>
+            </div>
+            <!-- <div class="op"></div> -->
+        </div>
+    </ion-content>
+</ion-view>

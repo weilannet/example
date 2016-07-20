@@ -1,0 +1,23 @@
+<ion-modal-view class="SharePageStyle" ng-controller="shareController" ng-click="closeShare()">
+    <div class="shareAll">
+        <div class="shareType img-friendsCircle" ng-click="weChatShareTIMELINE()"><span>朋友圈</spam></div>
+        <div class="shareType img-wechatFriends" ng-click="weChatShareSESSION()"><span>微信好友</span></div>
+        <div class="shareType img-qqFriends" ng-click="qqShare()"><span>QQ好友</span></div>
+        <div class="shareType img-linkShare" ng-click="clipboard()"><span>复制链接<span></div>
+        <!--    <div class="text-qqZone">QQ空间</div>
+        <div class="text-sinaMicroblog">新浪微博</div> -->
+        <!-- <div class="img-qqFriends" ng-click="qqShare()"></div>
+        <div class="text-qqFriends">QQ好友</div>
+        <div class="img-qqZone" ng-click="qqZone();"></div>
+        <div class="text-qqZone">QQ空间</div>
+        <div class="img-wechatFriends" ng-click="weChatShare()"></div>
+        <div class="text-wechatFriends">微信好友</div>
+        <div class="img-friendsCircle" ng-click="weChatCircleShare()"></div>
+        <div class="text-friendsCircle"> 朋友圈</div>
+        <div class="img-sinaMicroblog" ng-click="sinaMicroblog();"></div>
+        <div class="text-sinaMicroblog">新浪微博</div>
+        <div class="img-message" ng-click="message();"></div>
+        <div class="text-message">短信</div>-->
+        <button ng-click="closeShare()" class="button">取    消</button>
+    </div>
+</ion-modal-view>

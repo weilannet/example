@@ -1,0 +1,23 @@
+<ion-modal-view hide-nav-bar="true" ng-controller="LoginController" class="LoginPagesStyle">
+    <ion-content has-bouncing="false" scrollbar-y="false" ng-show="pageShow.login" class="LoginPageStyle mrNavBarHidden">
+    <div class="goBack" ng-click="goBack();">返回</div>
+        <div class="head">
+            <div class="logo"></div>
+        </div>
+        <form name="loginForm" ng-submit="login(credentials,loginForm);" novalidate>
+            <label>
+                <input type="text" class="urser" ng-model="credentials.username" required placeholder="请输入用户名">
+            </label>
+            <label>
+                <input type="password" class="password" ng-model="credentials.password" required placeholder="请输入密码">
+            </label>
+            <div class="forget">
+                <span class="forget_lft" ng-click="toForgotPwd();">忘记密码</span>
+                <span class="forget_rgt" ng-click="toRegister();">立即注册</span>
+            </div>
+            <button type="submit" class="button" ng-disabled="loginForm.$submitted">登录</button>
+        </form>
+    </ion-content>
+    <ion-view ng-include="getContentTpl('userServers/forgotPwd/forgotPwd')" ng-show="pageShow.forgotPwd"></ion-view>
+    <ion-view ng-include="getContentTpl('userServers/register/register')" ng-show="pageShow.register"></ion-view>
+</ion-modal-view>

@@ -1,0 +1,75 @@
+<ion-modal-view class="modalPage">
+    <div class="choseTime" has-bouncing="false" scrollbar-y="false">
+        <div class="main">
+            <div class="title">预约时间</div>
+            <form name="choseTime" novalidate;>
+                <div class="time">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <div class="myslides" style="height:2rem;overflow: auto;width:20%;margin-top: .15rem;">
+                        <ks-swiper-container swiper="swiper.swiper1" initial-slide="1" centered-slides="true" direction="vertical" slides-per-view=3 paginationClickable="true" on-change-end="onChangeEnd()">
+                            <ks-swiper-slide ng-repeat="item in data1">
+                                <div style="height:2rem;">
+                                    <div style="text-align: center;line-height: 1rem;">
+                                        <h2 style="text-align: center;line-height: 1rem;">{{item}}</h2></div>
+                                </div>
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </div>
+                    <div class="myslides" style="height:2rem;overflow: auto;width:25%;margin-top: .15rem;">
+                        <ks-swiper-container swiper="swiper.swiper2" initial-slide="1" observer="true" centered-slides="true" direction="vertical" slides-per-view=3 paginationClickable="true" on-change-end="onChangeEnd()">
+                            <ks-swiper-slide ng-repeat="item in data2">
+                                <div style="height:2rem;">
+                                    <div style="text-align: center;line-height: 1rem;">
+                                        <h2 style="text-align: center;line-height: 1rem;">{{item}}</h2></div>
+                                </div>
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </div>
+                    <div class="myslides" style="height:2rem;overflow: auto;width:25%;margin-top: .15rem;">
+                        <ks-swiper-container swiper="swiper.swiper3" initial-slide="1" observer="true" centered-slides="true" direction="vertical" slides-per-view=3 paginationClickable="true">
+                            <ks-swiper-slide ng-repeat="item in data3">
+                                <!-- <ks-swiper-slide ng-repeat="item in day.data3"> -->
+                                <div style="height:2rem;">
+                                    <div style="text-align: center;line-height: 1rem;">
+                                        <h2 style="text-align: center;line-height: 1rem;">{{item}}</h2></div>
+                                </div>
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </div>
+                    <div class="myslides" style="height:2rem;overflow: auto;width:25%;margin-top: .15rem;">
+                        <ks-swiper-container swiper="swiper.swiper4" initial-slide="1" centered-slides="true" direction="vertical" slides-per-view=3 paginationClickable="true">
+                            <ks-swiper-slide ng-repeat="item in data4">
+                                <div style="height:2rem;">
+                                    <div style="text-align: center;line-height: 1rem;">
+                                        <h2 style="text-align: center;line-height: 1rem;">{{item}}</h2></div>
+                                </div>
+                            </ks-swiper-slide>
+                        </ks-swiper-container>
+                    </div>
+                </div>
+                <div class="mass">
+                    <span>业主信息：</span>
+                    <textarea>{{textarea.text}}</textarea>
+                    <span>房屋信息：</span>
+                    <p ng-repeat="homeAddr in personalHouseList">{{homeAddr}}</p>
+                    <div>
+                        <!-- <div class="button button-assertive bdrano" ng-if="appointTimes.isfirst == '0';" ng-click="choseTime1(choseTime);">
+                            确定
+                        </div> -->
+                        <div type="submit" class="button button-assertive bdrano" ng-click="choseTime1(choseTime);">
+                            确定
+                        </div>
+                        <!-- 改choosetime2的接口 -->
+                        <!-- <div class="button button-assertive bdrano" ng-if="appointTimes.isfirst == '1';" ng-click="choseTime2(choseTime);">
+                            确定
+                        </div> -->
+                        <div class="button button-stable btnfff bdrano" ng-click="closeModal();">
+                            取消
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+</ion-modal-view>

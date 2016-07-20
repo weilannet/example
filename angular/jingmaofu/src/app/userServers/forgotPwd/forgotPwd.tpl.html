@@ -1,0 +1,28 @@
+<ion-view class="ForgotPwdPageStyle" ng-controller="ForgotPwdController">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button class="button backBtn" ng-click="toLogin()"></button>
+        </ion-nav-buttons>
+        <ion-nav-title>忘记密码</ion-nav-title>
+    </ion-nav-bar>
+    <ion-content has-bouncing="false" scrollbar-y="false" class="has-header">
+        <form class="forgotForm" novalidate name="forgotForm">
+            <label class="nameInput">
+                <input type="text" ng-model="forgotPwd.userPhone" placeholder="请输入您的手机号" minlength="11" maxlength="11" required>
+            </label>
+            <label class="authCode">
+                <input type="text" ng-model="forgotPwd.authCode" placeholder="请输入验证码" minlength="6" maxlength="6" required />
+            </label>
+            <div class="button spec" ng-click="phoneCodeforgotPwd()" ng-disabled="showButton">{{paracont}}</div>
+            <label class="newPass">
+                <input type="password" ng-model="forgotPwd.password" placeholder="新密码" minlength="6" required>
+            </label>
+            <label class="newPass1">
+                <input type="password" ng-model="forgotPwd.passwordConfirm" placeholder="确认新密码" minlength="6" required>
+            </label>
+            <div class="wrap">
+                <button class="button submit" ng-disabled="!forgotForm.$valid" ng-click="forgotPwdSend(forgotForm);" type="submit">提交</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

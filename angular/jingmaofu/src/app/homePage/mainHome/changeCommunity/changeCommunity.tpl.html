@@ -1,0 +1,20 @@
+<ion-view class="changeCommunity">
+    <ion-nav-title>选择小区</ion-nav-title>
+    <ion-content class="changeCommunityContent" has-bouncing="false" scrollbar-y="false">
+        <div class="clearfix">
+            <div class="item-button-right city">
+                请选择城市
+                <label class="item-select cityList">
+                    <select ng-model="default.defaultID" ng-options="cityData.city for cityData in fullArr">
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class="communityList">
+            <div class="items clearfix" ng-repeat="data in default.defaultID.buildingList[0] track by $index"  ng-click="goHomePage(data.pinyinCode,data.name);">
+                <div class="left">{{data.name}}</div>
+                <div class="right">></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

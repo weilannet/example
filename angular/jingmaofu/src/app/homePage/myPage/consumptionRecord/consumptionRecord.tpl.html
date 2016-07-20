@@ -1,0 +1,12 @@
+<ion-view class="consumptionRecord">
+    <ion-nav-title>交易记录</ion-nav-title>
+    <ion-content class="consumptionRecordContent" has-bouncing="false" scrollbar-y="false">
+        <div class="consumeItems" ng-repeat="data in csptData">
+            <div class="itemTitle">订单已完成&nbsp;-&nbsp;{{data.dealTime}}</div>
+            <div class="itemDetail clearfix">
+                <span class="itemLft">{{data.placeName}}</span>
+                <span class="itemRgt">实付&yen;<span>{{data.price}}</span></span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

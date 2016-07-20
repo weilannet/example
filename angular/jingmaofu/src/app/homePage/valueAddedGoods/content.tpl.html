@@ -1,0 +1,48 @@
+<ion-view class="valueAddedGoods">
+    <ion-content has-bouncing="false" scrollbar-y="false" class="valueAddedGoodsContent">
+        <div class="headerPic"><img ng-src="http://wxdemo2.maxrocky.com/images/valueAddedGoodsPic_02.png" alt=""></div>
+        <!-- <div class="section">
+    <div class="header clearfix">
+        <div class="lft">促销活动</div>
+        <a href="/promotionList">
+            <div class="rgt">更多</div>
+        </a>
+    </div>
+    <div class="content"><img ng-src="http://wxdemo2.maxrocky.com/images/valueAddedGoodsPic_04.png" alt=""></div>
+</div> -->
+        <div class="section">
+            <div class="header clearfix">
+                <div class="lft">商家特惠</div>
+                <a href="/valueGoodsList">
+                    <div class="rgt">更多</div>
+                </a>
+            </div>
+            <div class="content">
+                <div class="pic" ng-click="toDetail(0)"></div>
+                <div class="pic" ng-click="toDetail(1)"></div>
+                <div class="pic" ng-click="toDetail(2)"></div>
+                <div class="pic" ng-click="toDetail(3)"></div>
+                <div class="spec">
+                    <div class="pic" ng-click="toDetail(4)"></div>
+                    <div class="pic" ng-click="toDetail(5)"></div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="header clearfix">
+                <div class="lft">生活周边</div>
+                <a href="/neighbourhoodList">
+                    <div class="rgt">更多</div>
+                </a>
+            </div>
+            <div class="content" ng-click="toDetail(6)"><img class="specImg" /></div>
+            <div class="content">
+                <ul>
+                    <li class="specImgh1" ng-click="toDetail(7)"></li>
+                    <li class="specImgh2" ng-click="toDetail(8)"></li>
+                    <li class="specImgh3" ng-click="toDetail(9)"></li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view class="convenientInformationPage">
+    <ion-nav-title>便民信息</ion-nav-title>
+    <ion-tabs class="tabs-color-active-assertive tabs-top tabs-striped myTabs">
+        <ion-tab title="当前小区({{projectActive}})">
+            <ion-content has-bouncing="false" scrollbar-y="false" class="contentStyle">
+                <img ng-src="{{data.src}}" alt="" mr-img-convert imgw="7.5" imgh="3.69" />
+                <div class="telephoneList" ng-repeat="tele in data.memberList">
+                    <div class="title">{{tele.groupName}}</div>
+                    <div class="telephone">
+                        <hr>
+                        <span class="name">{{tele.name}}</span>
+                        <span class="tele"><a>{{tele.mobile}}</a></span>
+                        <a href="tel:{{tele.mobile}}" class="callNum">
+                            <i class="icon ion-ios-telephone-outline"></i>
+                        </a>
+                    </div>
+                </div>
+                <div ng-repeat="service in data1" ng-class="{'namehiden':!service.name}">
+                    <div class="service">
+                        <div class="serviceName" ng-if="service.name">{{service.name}}</div>
+                        <hr ng-if="service.name">
+                        <!-- <span>物业服务中心电话：{{service.serviceTele}}</span> -->
+                        <!-- <span ng-if="service.commandTele">物业指挥中心电话：{{service.commandTele}}</span> -->
+                        <!--  <p >{{service.content}}</p> -->
+                        <!-- <div ng-bind-html="service.content" class="serviceContentClass"></div> -->
+                        <div ng-bind-html="service.content" class="serviceContent"></div>
+                        <br>
+                    </div>
+                </div>
+                <div>
+                    <p class="fdBack">备注：以上信息为方便业主生活而收集，仅供参考不作承诺。如遇变更，请您留言，我们将尽快核实更新。谢谢！</p>
+                </div>
+                <div class="foot">
+                    <a ng-href="/bianminfeedback">我要纠错</a>
+                </div>
+            </ion-content>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

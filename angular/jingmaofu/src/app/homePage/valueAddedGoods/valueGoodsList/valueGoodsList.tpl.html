@@ -1,0 +1,8 @@
+<ion-view class="valueGoodsList">
+    <ion-nav-title>商家特惠</ion-nav-title>
+    <ion-content class="valueGoodsListContent" has-bouncing="false" scrollbar-y="false">
+        <div class="goodsItem clearfix" ng-repeat="data in goodsItem" ng-click="goGoodsDetail($index);">
+            <div class="left"><img ng-src="{{data.src}}"></div>
+        </div>
+    </ion-content>
+</ion-view>

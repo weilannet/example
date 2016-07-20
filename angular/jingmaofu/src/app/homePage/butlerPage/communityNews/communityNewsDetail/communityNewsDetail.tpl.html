@@ -1,0 +1,38 @@
+<ion-view class="communityNewsDetail">
+    <ion-nav-title>公告详情
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+        <div class="shareBut" ng-click="share()"></div>
+    </ion-nav-buttons>
+    <ion-content class="communityNewsDetailContent" has-bouncing="false" scrollbar-y="false">
+        <div class="newsItems">
+            <div class="newsTitle clearfix">
+                <h4>{{commNewsDetail.releasePerson}}</h4>
+                <span>{{commNewsDetail.releaseDate | date:'yyyy-MM-dd HH:mm:ss'}}&nbsp;通知</span>
+            </div>
+            <div class="newsContent" ng-bind-html="commNewsDetail.content"></div>
+            <div class="newsTitle clearfix" ng-if="tourists != '1'">
+                <span class="titleText">公告咨询</span>
+            </div>
+            <div class="newsComments clearfix" ng-if="tourists != '1'">
+                <div class="commentItem" ng-repeat="commentsInfo in commentItems">
+                    <div class="user">{{commentsInfo.userNickName}}</div>
+                    <div class="time">{{commentsInfo.createOn | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                    <div class="content"><span class="contentText">问题 {{commentsInfo.content}}</span></div>
+                    <div class="contentReply" ng-if="commentsInfo.replyContent == null || commentsInfo.replyContent == '' "><span class="dack">答复 暂无</span></div>
+                    <div class="contentReply" ng-if="commentsInfo.replyContent != null && commentsInfo.replyContent != '' "><span class="yellow">答复 {{commentsInfo.replyContent}}</span></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer bar-dack" ng-if="tourists != '1' ">
+        <span ng-class="{communityGoodDack:commNewsDetail.likeNum == null || commNewsDetail.likeNum == 0,communityGoodYellow:commNewsDetail.likeNum > 0}" ng-click="pressLike();"></span>
+        <span class="shuxian"></span>
+        <span class="communityStarDack" ng-if="collectionData.collectionId==null || collectionData.collectionId=='' " ng-click="addFavorite()"></span>
+        <span class="communityStarYellow" ng-if="collectionData.collectionId!=null && collectionData.collectionId!=''" ng-click="deleteFavorite()"></span>
+        <div class=" text ">
+            <input ng-model="text.textInfo " class="textInfo " type="text" placeholder="请输入评论 " />
+        </div>
+        <div class="button submit spec " ng-click="submitComment(); ">提交</div>
+    </div>
+</ion-view>

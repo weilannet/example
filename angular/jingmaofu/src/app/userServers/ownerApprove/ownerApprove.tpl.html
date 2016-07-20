@@ -1,0 +1,17 @@
+<ion-modal-view ng-controller="ownerApproveController" hide-nav-bar="false" class="ownerApprovePage">
+    <ion-content has-bouncing="false" scrollbar-y="false" class="ownerApproveContent">
+        <div class="headerBar">
+            业主认证
+            <div class="backbtn" ng-click="goBack();"></div>
+        </div>
+        <form name="ownerApproveForm" novalidate>
+            <div class="items clearfix">
+                <span></span>
+                <input type="text" placeholder="身份证" ng-model="userData.idCard" name="idCard" minlength="15" maxlength="18" required>
+            </div>
+            <div class="wrap">
+                <div class="button submit" ng-click="approve(ownerApproveForm);" ng-disabled="ownerApproveForm.$submitted || !ownerApproveForm.$valid">入会</div>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

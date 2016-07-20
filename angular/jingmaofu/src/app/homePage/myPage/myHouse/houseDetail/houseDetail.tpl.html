@@ -1,0 +1,42 @@
+<ion-view class="houseDetailStyle">
+    <ion-nav-title>我的房产</ion-nav-title>
+    <ion-content class="houseDetail" has-bouncing="false" scrollbar-y="false">
+        <div class="myHouse">
+            <div class="listTitle">{{data.address}}</div>
+            <div class="row">
+                <div class="col col-50">
+                    户型：<span class="describeColor">{{data.houseType}}</span>
+                </div>
+                <div class="col col-50 ">
+                    <div class="leftCol">建筑面积：<span class="describeColor ">{{data.buildingArea}}</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-50">
+                    套内面积：<span class="describeColor">{{data.usableArea}}</span>
+                </div>
+                <div class="col col-50" ng-if="tourists==3">
+                    <button class="approveBtn" ng-if="defaultH.code != '0'" ng-click="defaultHouse()">设为默认房产</button>
+                </div>
+            </div>
+        </div>
+        <div class="myHousemate" ng-if="tourists==3">
+            <div class="listTitle">我的房屋使用人</div>
+            <div class="housemateList">
+                <div class="row headRow">
+                    <div class="col col-30">姓名</div>
+                    <div class="col col-40">联系方式</div>
+                    <div class="col col-30">操作</div>
+                </div>
+                <div class="row listRow" ng-repeat="item in data2">
+                    <div class="col col-30">{{item.name}}</div>
+                    <div class="col col-40">{{item.phone}}</div>
+                    <div class="col col-30">
+                        <button class="colBtn" ng-click="deleteHousemate($index)">删除</button>
+                    </div>
+                </div>
+            </div>
+            <button class="addBtn" ng-click="openModal()">添加房屋使用人</button>
+        </div>
+    </ion-content>
+</ion-view>

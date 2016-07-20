@@ -1,0 +1,18 @@
+<ion-view class="communityNews">
+    <ion-nav-title>社区公告</ion-nav-title>
+    <ion-content class="communityNewsContent" has-bouncing="false" scrollbar-y="false">
+        <div class="newsItems" ng-repeat="data in communityAnnounce" ng-click="goPage(data.detailidId,data.collectionId,$event,'butlerPage/communityNewsDetail');">
+            <div class="newsTitle clearfix">
+                <h4>{{data.createPerson}}</h4>
+                <span>{{data.releaseDate}}通知</span>
+            </div>
+            <div class="newsContent">{{data.contentSynopsis}}</div>
+            <div class="vote" ng-if="data.isVote == '1';" ng-click="goPage(data.detailidId,data.collectionId,$event,'votePage')">点击进行投票>></div>
+            <div class="newsBottom clearfix" ng-if="tourists != '1'">
+                <span ng-if="data.collectionId != null && data.collectionId != '' " ng-click="deleteFavorite(data.collectionId,$event)">取消收藏</span>
+                <span ng-if="data.collectionId == null || data.collectionId == '';" ng-click="addFavorite(data.detailidId,$event);">收藏</span>
+                <span>点赞：{{data.likeNum}}|评论：{{data.replyNum}}</span>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

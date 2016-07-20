@@ -1,0 +1,17 @@
+<ion-view class="repairMessageDetail">
+    <ion-nav-title>未读报修消息</ion-nav-title>
+    <ion-content has-bouncing="false" scrollbar-y="false">
+        <div class="allMessage">
+            <div class="items" ng-repeat="data in sortArr">
+                <div class="title clearfix">
+                    <div class="left">报修信息</div>
+                    <div class="right">{{data.taskDate}}</div>
+                </div>
+                <div class="content" ng-class="{'afterRead': (data.readStatus != '0')}" ng-click="goRepairDetail(data.taskId,data.repairId);">
+                    {{data.taskContent}}
+                    <span class="checkDetail">查看></span>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

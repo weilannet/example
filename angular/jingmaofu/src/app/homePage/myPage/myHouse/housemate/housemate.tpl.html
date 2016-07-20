@@ -1,0 +1,28 @@
+<ion-view class="housemateStyle" hide-nav-bar="true">
+    <ion-nav-title>房屋使用人</ion-nav-title>
+    <ion-content has-bouncing="false" scrollbar-y="false" class="backColor">
+        <h2>
+            您已成功添加<span class="addName">{{data.addName}}</span>为
+            <p>{{data.house}}<span>的房屋使用人</span></p>
+        </h2>
+        <div class="myHousemate">
+            <p>我的房屋使用人</p>
+            <div class="housemateList">
+                <div class="row">
+                    <div class="col col-30">姓名</div>
+                    <div class="col col-40">联系方式</div>
+                    <div class="col col-30 change">操作</div>
+                </div>
+                <div class="row" ng-repeat="item in data.mateList" ng-if="item.show==1">
+                    <div class="col col-30">{{item.name}}</div>
+                    <div class="col col-40">{{item.phone}}</div>
+                    <div class="col col-30 change">
+                        <button class="colBtn" ng-click="deleteHousemate(item.id)">删除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="{{data.hrefOne}}">继续添加房屋使用人</a>
+        <a href="{{data.hrefTwo}}">关闭</a>
+    </ion-content>
+</ion-view>

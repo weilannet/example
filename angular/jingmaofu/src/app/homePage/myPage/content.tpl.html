@@ -1,0 +1,59 @@
+<ion-view class="myPage">
+    <ion-content has-bouncing="false" scrollbar-y="false" class="myPageContent">
+        <div class="myPageHeader clearfix" ng-if="!isLogin" ng-click="doCheck()">
+            <img class="userPic" src="{{UserDefaultLogo.data}}">
+            <div class="userBtn">
+                <p class="status">未登录</p>
+                <p>点击立即登录</p>
+            </div>
+        </div>
+        <div class="myPageHeader clearfix" ng-if="isLogin" ng-click="doCheck()">
+            <div ng-if="outUserData.logo != '' && outUserData.logo != null "><img class="userPic" src="{{outUserData.logo}}"></div>
+            <div ng-if="outUserData.logo == '' "><img class="userPic" src="{{UserDefaultLogo.data}}"></div>
+            <div class="userBtn">
+                <p class="status">{{outUserData.nickName}}</p>
+            </div>
+        </div>
+        <div class="myPageContent">
+            <a href="/mine/memberRecord">
+                <div class="items clearfix">
+                    <h4 class="memberRecord">会员记录</h4>
+                    <span>></span>
+                </div>
+            </a>
+            <a href="/mine/personalInfo">
+                <div class="items clearfix">
+                    <h4 class="personInfo">个人消息</h4>
+                    <span>></span>
+                </div>
+            </a>
+            <a href="/houseIndex">
+                <div class="items clearfix">
+                    <h4 class="myHouse">我的房产</h4>
+                    <span>></span>
+                </div>
+            </a>
+            <a href="/mine/myFavorite">
+                <div class="items clearfix">
+                    <h4 class="myFavorite">我的收藏</h4>
+                    <span>></span>
+                </div>
+            </a>
+            <!-- <div class="items clearfix">
+                <h4 class="feedback">意见反馈</h4>
+                <span>></span>
+            </div> -->
+            <a href="/mine/aboutApp">
+                <div class="items clearfix">
+                    <h4 class="about">关于APP</h4>
+                    <span>></span>
+                </div>
+            </a>
+        </div>
+        <!-- <div class="nowVersion clearfix">
+            <p>当前版本</p>
+            <p>2.2.1</p>
+        </div> -->
+        <div ng-if="outUserData.userType == '2' || outUserData.userType == '3' || outUserData.userType == '4'" class="logoff" ng-click="logoff();">退出登录</div>
+    </ion-content>
+</ion-view>

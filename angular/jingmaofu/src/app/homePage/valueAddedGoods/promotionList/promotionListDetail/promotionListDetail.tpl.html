@@ -1,0 +1,36 @@
+<ion-view class="valueGoodsDetail">
+    <ion-nav-title>{{goodDetail.name}}</ion-nav-title>
+    <ion-content class="valueGoodsDetailContent" has-bouncing="false" scrollbar-y="false">
+        <div class="mainInfo clearfix">
+            <div class="left">
+                <img ng-src="{{goodDetail.topPic}}" alt="">
+            </div>
+            <div class="right">
+                <div class="name">{{goodDetail.name}}</div>
+                <div class="area"><span>{{goodDetail.block}}</span><span>{{goodDetail.type}}</span></div>
+                <div class="time">营业时间：{{goodDetail.openTime}}</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="title">商家详情</div>
+            <div class="content">
+                <div><span>行政区：</span>{{goodDetail.block}}</div>
+                <div><span>商业区：</span>{{goodDetail.area}}</div>
+                <div><span>酒店地址：</span>{{goodDetail.address}}</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="title">网友推荐</div>
+            <div class="content">{{goodDetail.recommond}}</div>
+        </div>
+        <div class="section">
+            <div class="title">飘香菜品</div>
+            <div class="content">
+                <div class="items" ng-repeat="data in goodDetail.comment">
+                    <div class="pic"><img ng-src="{{data.pic}}" alt=""></div>
+                    <div class="text">{{data.text}}</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view class="votePage">
+    <ion-nav-title>社区公告-投票</ion-nav-title>
+    <ion-content class="votePageContent" has-bouncing="false" scrollbar-y="false">
+        <div class="voteHeader">
+            <div class="voteTitle">{{voteData.voteTitle}}</div>
+            <div class="voteNumber">{{voteData.countPerson}}
+                <br/>参与人数</div>
+        </div>
+        <div class="welcome">欢迎您进行投票</div>
+        <div ng-click="activeIndex.num=$index; addIdSingle(data.announcementVoteId);" class="voteItems clearfix" ng-repeat="data in voteData.voteOptions" ng-if="voteData.voteType=='0'">
+            <div class="select" ng-class="{'active':activeIndex.num==$index}"></div>
+            <div class="votePic"><img ng-src="{{data.imgUrl}}"></div>
+            <div class="voteContent">{{data.description}}</div>
+        </div>
+        <div ng-repeat="data in voteData.voteOptions" ng-if="voteData.voteType=='1'">
+            <ion-checkbox scrollbar-x="false" scrollbar-y="false" class="checkBox voteItems clearfix" ng-model="filter.red" ng-Change="addIDdouble(data.announcementVoteId)" ng-true-value="'yes' " ng-false-value="'false'">
+                <div class="select" ng-class="{'active':filter.red == 'yes'}"></div>
+                <div class="votePic" ng-if="data.imgUrl != '' "><img ng-src="{{data.imgUrl}}"></div>
+                <div class="voteContent">{{data.description}}</div>
+            </ion-checkbox>
+        </div>
+        <div class="endDate">截止日期：{{voteData.endDate}}</div>
+        <div class="bottom">
+            <div class="button submit" ng-click="postVote();" ng-show="voteData.isVote == '0';">投票</div>
+            <div class="button submit" ng-click="goVoteSummery();" ng-show="voteData.isVote == '1';">查看结果</div>
+        </div>
+    </ion-content>
+</ion-view>

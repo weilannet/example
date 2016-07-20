@@ -1,0 +1,9 @@
+<ion-view class="feedBackPage">
+    <ion-nav-title>纠错</ion-nav-title>
+    <ion-content class="fb_content" has-bouncing="false" scrollbar-y="false">
+        <form name="bmfeedBack" novalidate ng-submit="bmfeedBack2(bmfeedBack);">
+            <textarea class="textarea1" ng-model="inputdata.bmfb_content" maxlength="150" minlength="1" required placeholder="请输入您的问题描述"></textarea>
+            <input type="submit" value="确认提交" class="bmfb_submit button" ng-disabled="bmfeedBack.$submitted || !bmfeedBack.$valid">
+        </form>
+    </ion-content>
+</ion-view>

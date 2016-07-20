@@ -1,0 +1,35 @@
+<ion-view class="jinmaoBrandPage">
+    <ion-nav-title>金茂品牌</ion-nav-title>
+    <ion-content has-bouncing="false" scrollbar-y="false">
+        <div class="Brand">
+            <!-- 品牌 -->
+            <div class="topBrand">
+                <!--   <a ng-href="/#/newsDetail/{{data.newsImg.id}}"> -->
+                <a ng-href="/newsDetail/a">
+                    <img ng-src="{{data.newsImg}}" mr-img-convert imgw="7.5" imgh="2.13" />
+                </a>
+            </div>
+            <div class="botBrand">
+                <div class="leftBrand" ng-repeat="img in data.imgList">
+                    <a ng-href="/newsDetail/{{img.id}}">
+                        <img ng-src="{{img.newsImg}}" mr-img-convert imgw="3.54" imgh="1.8" />
+                        <span>{{img.imgTitle}}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="op"></div>
+            <!-- 新闻 -->
+            <div class="jinmaoNews">
+                <div class="title">金茂新闻</div>
+                <div class="list" ng-repeat="news in data.newsList">
+                    <a class="item item-thumbnail-left" ng-href="/newsDetail/{{news.id}}" ng-class="{'imghiden':!news.newsImg}">
+                        <img ng-src="{{news.newsImg}}" ng-if="news.newsImg" mr-img-convert imgw="2.60" imgh="1.73">
+                        <h2>{{news.title}}</h2>
+                        <p>{{news.overview}}</p>
+                        <span>{{news.operatorTimeString}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

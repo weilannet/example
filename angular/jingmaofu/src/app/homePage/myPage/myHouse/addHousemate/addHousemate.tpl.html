@@ -1,0 +1,28 @@
+<ion-modal-view class="addHousemateStyle">
+    <ion-content class="addHousemate" has-bouncing="false" scrollbar-y="false">
+        <div class="header">添加房屋使用人<span class="goback" ng-click="goback();"></span></div>
+        <form novalidate name="addHousemate" ng-submit="addMate()">
+            <div class="addList">
+                <div class="inputList">
+                    <label class="item item-input">
+                        <span class="addBack"></span>
+                        <input type="text" required placeholder="请输入房屋使用人姓名" ng-model="houseMate.name"></input>
+                    </label>
+                </div>
+                <div class="inputList">
+                    <label class="item item-input">
+                        <span class="idBack"></span>
+                        <input type="text" placeholder="请输入房屋使用人身份证号码" ng-model="houseMate.idNum"></input>
+                    </label>
+                </div>
+                <div class="inputList">
+                    <label class="item item-input">
+                        <span class="phoneBack"></span>
+                        <input type="text" required placeholder="请输入房屋使用人手机号" ng-model="houseMate.phone"></input>
+                    </label>
+                </div>
+            </div>
+            <button class="addmateBtn button" type="submit" ng-disabled="!addHousemate.$valid">添加为房屋使用人</button>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,48 @@
+<ion-view class="activityApplyStyle">
+    <ion-nav-title>活动报名</ion-nav-title>
+    <ion-tabs class="tabs-color-active-assertive tabs-top tabs-striped myTabs">
+        <ion-tab title="活动列表">
+            <ion-content has-bouncing="false" scrollbar-y="false" class="contentStyle">
+                <ion-list>
+                    <div ng-repeat="item in data" class="actList">
+                        <a ng-href='/#/activityDetail/{{item.id}}/{{usertype}}' class="listStyle">
+                            <div class="applyShow">
+                                <img ng-src="{{item.src}}" class="applyImg" mr-img-convert imgw="7.1" imgh="3.7" />
+                                <div class="applyStatus">
+                                    <div class="status" ng-if="timeDone[$index]-timeNow>=0">剩余可报名数 {{item.people}} 名</div>
+                                    <div class="status" ng-if="timeDone[$index]-timeNow<0">报名已截止</div>
+                                </div>
+                            </div>
+                            <div class="applyBottom">
+                                <div class="applyRange">报名范围：{{item.scope}}</div>
+                                <div class="activityTime">活动开始时间：{{item.publishDate}}</div>
+                            </div>
+                        </a>
+                        <div class="statusBtn" ng-if="item.people>0&&timeDone[$index]-timeNow>=0&&item.state==0" ng-show="usertype!='1'" ng-click="apply($index)">报名</div>
+                        <a class="seeBtn" ng-if="item.people==0 || timeDone[$index]-timeNow<0" ng-href='/#/activityDetail/{{item.id}}/{{usertype}}'>查看详情</a>
+                        <button class="seeBtn button" ng-if="item.state==1" ng-disabled="true">已报名</button>
+                    </div>
+                </ion-list>
+            </ion-content>
+            </ion>
+            <ion-tab title="我报名的活动">
+                <ion-content has-bouncing="false" scrollbar-y="false" class="mycontentStyle">
+                    <ion-list>
+                        <div ng-repeat="item2 in data2" class="actList1" ng-if="item2.id!=null">
+                            <a ng-href='/#/activityDetail/{{item2.id}}/{{usertype}}' class="listStyle">
+                                <div class="applyShow">
+                                    <img ng-src="{{item2.src}}" class="applyImg" mr-img-convert imgw="7.1" imgh="3.7" />
+                                    <div class="applyStatus"></div>
+                                </div>
+                                <div class="applyBottom">
+                                    <div class="applyRange">报名范围：{{item2.scope}}</div>
+                                    <div class="activityTime">活动开始时间：{{item2.publishDate}}</div>
+                                </div>
+                            </a>
+                            <div class="statusBtn" ng-click="showConfirm($index)">取消</div>
+                        </div>
+                    </ion-list>
+                </ion-content>
+                </ion>
+    </ion-tabs>
+</ion-view>

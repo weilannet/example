@@ -1,0 +1,46 @@
+<ion-view class="personalInfo">
+    <ion-nav-title>个人消息</ion-nav-title>
+    <ion-content class="personalInfoContent" has-bouncing="false" scrollbar-y="false">
+        <div class="msgContent">
+            <div class="items clearfix" ng-click="goRepairMsgDetail();">
+                <div class="left">
+                    <img ng-src="http://wxdemo2.maxrocky.com/images/butlerRepair.png" alt="">
+                    <div class="badge" ng-show="noReadNum > '0'">{{noReadNum}}+</div>
+                </div>
+                <div class="right">
+                    <div class="title">报修消息</div>
+                    <div ng-if="updateTime != 'NaN-NaN-NaN' " class="updateTime">{{updateTime}} 更新</div>
+                    <div ng-if="updateTime == 'NaN-NaN-NaN' " class="updateTime">暂无新的报修消息</div>
+                </div>
+            </div>
+            <div class="items clearfix">
+                <div class="left">
+                    <img ng-src="http://wxdemo2.maxrocky.com/images/butlerCharge.png" alt="">
+                    <div class="badge">{{chargeData.num}}+</div>
+                </div>
+                <div class="right">
+                    <div class="title">缴费消息</div>
+                    <div class="updateTime">{{chargeData.latestTime}} 更新</div>
+                </div>
+            </div>
+            <div class="items clearfix">
+                <div class="left">
+                    <img ng-src="http://wxdemo2.maxrocky.com/images/butlerActivity.png" alt="">
+                </div>
+                <div class="right">
+                    <div class="title">活动消息</div>
+                    <div class="updateTime">{{activityData.latestTime}} 更新</div>
+                </div>
+            </div>
+            <div class="items clearfix">
+                <div class="left">
+                    <img ng-src="http://wxdemo2.maxrocky.com/images/butlerAppointIcon.png" alt="">
+                </div>
+                <div class="right">
+                    <div class="title">房屋交付消息</div>
+                    <div class="updateTime">{{deliveryData.latestTime}} 更新</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

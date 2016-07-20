@@ -1,0 +1,16 @@
+<ion-view class="propertyCharge">
+    <ion-nav-title>物业缴费</ion-nav-title>
+    <ion-content class="propertyChargeContent" has-bouncing="false" scrollbar-y="false">
+        <div class="chargeItem" ng-repeat="data in chargeData">
+            <div class="chargeHeader clearfix">
+                <div class="lft">{{data.feeType}}</div>
+                <div class="mid">{{data.address}}</div>
+                <div class="rgt">立即缴费></div>
+            </div>
+            <div class="chargeContent">
+                <div class="feeDetail">代缴明细：{{data.feeDetail}}</div>
+                <div class="feeAmount">代缴金额：{{data.amount}}</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
